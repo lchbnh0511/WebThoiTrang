@@ -1,0 +1,303 @@
+﻿@{
+    ViewBag.Title = "Sweet Shop";
+    ViewBag.SeoDescription = "Sweet Shop";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/main_styles.css">
+<!-- Slider -->
+
+
+<div class="main_slider" style="background-image: url(Content/assets/images/slider_2.jpg) ">
+    <div class="container fill_height">
+        <div class="row align-items-center fill_height">
+            <div class="col">
+                <div class="main_slider_content">
+                    @*<h6>Spring / Summer Collection 2023</h6>
+                    <h1>Get up to 30% Off New Arrivals</h1>*@
+                    @*<div class="red_button shop_now_button"><a href="#">shop now</a></div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+
+    
+
+    .section_title::after {
+        display: block;
+        position: absolute;
+        top: calc(100% + 13px);
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+        width: 60px;
+        height: 5px;
+        background: black;
+        content: '';
+    }
+
+    .red_button.shop_now_button {
+        background-color: black;
+        color: white;
+    }
+    .grid_sorting_button.active:hover {
+        background: #51545f !important;
+    }
+
+    .grid_sorting_button.active {
+        color: #FFFFFF;
+        background: black;
+    }
+    .product_price {
+        font-size: 16px;
+        color: black;
+        font-weight: 600;
+    }
+    .red_button {
+        display: -webkit-inline-box;
+        display: -moz-inline-box;
+        display: -ms-inline-flexbox;
+        display: -webkit-inline-flex;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 40px;
+        background: black;
+        border-radius: 3px;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+
+        .red_button:hover {
+            background: #3a3a3a !important;
+        }
+
+        .red_button a {
+            display: block;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            line-height: 40px;
+            width: 100%;
+        }
+    .add_to_cart_button {
+        width: 100%;
+        visibility: hidden;
+        opacity: 0;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+
+        .add_to_cart_button a {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+    .product-item:hover .add_to_cart_button {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    /*ảnh best seller*/
+    .owl-carousel .owl-item img {
+        display: block;
+        margin-left: 25px;
+        width: 76%;
+    }
+
+    .benefit_icon i {
+        font-size: 30px;
+        color: black;
+    }
+
+    /*countdown*/
+    .timer_num {
+        font-size: 48px;
+        font-weight: 600;
+        color: black;
+        margin-top: 10px;
+    }   
+    /*blog*/
+    .blog_more {
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 500;
+        color: black;
+        border-bottom: solid 1px black;
+        margin-top: 12px;
+    }
+
+    .blog_more:hover {
+        color: #888186;
+    }
+
+    a {
+        color: black;
+        text-decoration: none;
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects
+    }
+</style>
+<div class="text-center">
+    <div class="red_button shop_now_button"><a href="#">shop now</a></div>
+</div>
+
+<!-- Banner -->
+
+@Html.Action("MenuProductCategory", "Menu")
+
+<!-- New Arrivals -->
+
+<div class="new_arrivals">
+    <div class="container">
+        @Html.Action("MenuArrivals", "Menu")
+    </div>
+</div>
+
+<!-- Deal of the week -->
+
+<div class="deal_ofthe_week">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="deal_ofthe_week_img">
+                    <img src="~/Content/assets/images/deal_ofthe_week2.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 text-right deal_ofthe_week_col">
+                <div class="deal_ofthe_week_content d-flex flex-column align-items-center float-right">
+                    <div class="section_title">
+                        <h2>Deal Of The Week</h2>
+                    </div>
+
+                    <ul class="timer">
+                        <li class="d-inline-flex flex-column justify-content-center align-items-center">
+                            <div id="day" class="timer_num"></div>
+                            <div class="timer_unit">Days</div>
+                        </li>
+                        <li class="d-inline-flex flex-column justify-content-center align-items-center">
+                            <div id="hour" class="timer_num"></div>
+                            <div class="timer_unit">Hours</div>
+                        </li>
+                        <li class="d-inline-flex flex-column justify-content-center align-items-center">
+                            <div id="minute" class="timer_num"></div>
+                            <div class="timer_unit">Mins</div>
+                        </li>
+                        <li class="d-inline-flex flex-column justify-content-center align-items-center">
+                            <div id="second" class="timer_num"></div>
+                            <div class="timer_unit">Sec</div>
+                        </li>
+                    </ul>
+
+
+                    <div class="red_button deal_ofthe_week_button"><a href="#">shop now</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Best Sellers -->
+@Html.Action("Partial_ProductSales", "Products")
+
+<!-- Benefit -->
+
+<div class="benefit">
+    <div class="container">
+        <div class="row benefit_row">
+            <div class="col-lg-3 benefit_col">
+                <div class="benefit_item d-flex flex-row align-items-center">
+                    <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+                    <div class="benefit_content">
+                        <h6>VẬN CHUYỂN</h6>
+                        <p>Đồng giá 30k toàn quốc</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 benefit_col">
+                <div class="benefit_item d-flex flex-row align-items-center">
+                    <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+                    <div class="benefit_content">
+                        <h6>CASH ON DELIVERY</h6>
+                        <p>The Internet Tend To Repeat</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 benefit_col">
+                <div class="benefit_item d-flex flex-row align-items-center">
+                    <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
+                    <div class="benefit_content">
+                        <h6>7 NGÀY ĐỔI SẢN PHẨM</h6>
+                        <p>Đổi trả sản phẩm nguyên giá trong 7 ngày</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 benefit_col">
+                <div class="benefit_item d-flex flex-row align-items-center">
+                    <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+                    <div class="benefit_content">
+                        <h6>MỞ CỬA CẢ TUẦN</h6>
+                        <p>8h00 - 17h00, T2 - T7 (Giờ hành chính)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Blogs -->
+
+@Html.Action("Partial_News_Home", "News")
+
+@*@section scripts{
+        <script>
+            // Ngày mục tiêu của countdown
+            var targetDate = new Date("2023-12-31");
+
+            function updateCountdown() {
+                // Lấy thời gian hiện tại
+                var currentDate = new Date();
+
+                // Tính toán số miligiây còn lại
+                var timeRemaining = targetDate - currentDate;
+
+                // Tính toán số ngày, giờ, phút và giây
+                var daysRemaining = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                var hoursRemaining = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutesRemaining = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                var secondsRemaining = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                // Hiển thị số ngày, giờ, phút và giây còn lại
+                document.getElementById("countdown").innerHTML =
+                    "Số ngày còn lại: " + daysRemaining + " ngày " +
+                    hoursRemaining + " giờ " +
+                    minutesRemaining + " phút " +
+                    secondsRemaining + " giây ";
+
+                document.getElementById("days").innerHTML = "Ngày: " + daysRemaining;
+                document.getElementById("hours").innerHTML = "Giờ: " + hoursRemaining;
+                document.getElementById("minutes").innerHTML = "Phút: " + minutesRemaining;
+                document.getElementById("seconds").innerHTML = "Giây: " + secondsRemaining;
+            }
+
+            // Cập nhật số ngày, giờ, phút và giây ban đầu
+            updateCountdown();
+
+            // Cập nhật số ngày, giờ, phút và giây mỗi giây
+            setInterval(updateCountdown, 1000);
+        </script>
+    }*@
